@@ -1,0 +1,10 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    background-color: darkblue;
+    width: 650px;
+    border-radius: 20px;
+}

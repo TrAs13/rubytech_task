@@ -1,25 +1,24 @@
-import {categories, data} from "../../data/data";
-
-import {getCategoryData, getChildData} from "../services";
-
 const initialState = {
-  data: data,
-  categories: categories
+  isChild: false,
+  category: "ALL"
 };
 
-const touristReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'UPDATE_DATA':
+const filterReducer = (state = initialState, action) => {
+  switch (action?.type) {
+    case 'FILTER/UPDATE_CHILD':
       return {
-        data: action
+        ...state,
+        isChild: action.payload
       };
-    case 'GET_CHILD_INFO':
-      return getChildData(state.data)
-    case 'GET_CATEGORY_DATA':
-      return getCategoryData(state.data)
+    case 'FILTER/UPDATE_CATEGORY':
+      return {
+        ...state,
+        category: action.payload
+      };
     default:
       return state;
   }
+
 };
 
-export default touristReducer;
+export default filterReducer;
